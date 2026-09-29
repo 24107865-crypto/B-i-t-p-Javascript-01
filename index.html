@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bảng điểm học kỳ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+ 
+  <main class="sheet">
+ 
+    <header class="sheet__head">
+      <p class="sheet__eyebrow">Trường Đại học Phenikaa</p>
+      <h1 class="sheet__title">Bảng điểm học kỳ</h1>
+      <p class="sheet__sub">Nhập tên và điểm 5 môn học để tính điểm trung bình và xếp loại.</p>
+    </header>
+ 
+    <form id="grade-form" class="form" novalidate>
+ 
+      <div class="field">
+        <label for="student-name">Họ và tên sinh viên</label>
+        <input type="text" id="student-name" name="student-name" placeholder="Nguyễn Văn A" autocomplete="name">
+        <p class="field__error" id="err-name"></p>
+      </div>
+ 
+      <div class="subjects">
+        <div class="field">
+          <label for="score-1">1. Giải tích 1</label>
+          <input type="number" id="score-1" class="score-input" min="0" max="10" step="0.1" placeholder="0 – 10" inputmode="decimal">
+          <p class="field__error" id="err-1"></p>
+        </div>
+ 
+        <div class="field">
+          <label for="score-2">2. Đại số tuyến tính</label>
+          <input type="number" id="score-2" class="score-input" min="0" max="10" step="0.1" placeholder="0 – 10" inputmode="decimal">
+          <p class="field__error" id="err-2"></p>
+        </div>
+ 
+        <div class="field">
+          <label for="score-3">3. Xác suất thống kê</label>
+          <input type="number" id="score-3" class="score-input" min="0" max="10" step="0.1" placeholder="0 – 10" inputmode="decimal">
+          <p class="field__error" id="err-3"></p>
+        </div>
+ 
+        <div class="field">
+          <label for="score-4">4. Tin học đại cương</label>
+          <input type="number" id="score-4" class="score-input" min="0" max="10" step="0.1" placeholder="0 – 10" inputmode="decimal">
+          <p class="field__error" id="err-4"></p>
+        </div>
+ 
+        <div class="field">
+          <label for="score-5">5. Xây dựng ứng dụng Web</label>
+          <input type="number" id="score-5" class="score-input" min="0" max="10" step="0.1" placeholder="0 – 10" inputmode="decimal">
+          <p class="field__error" id="err-5"></p>
+        </div>
+      </div>
+ 
+      <div class="form__actions">
+        <button type="submit" class="btn btn--primary">Tính điểm</button>
+        <button type="reset" class="btn btn--ghost" id="reset-btn">Xoá</button>
+      </div>
+    </form>
+ 
+    <section class="result" id="result" hidden>
+      <div class="result__header">
+        <h2 id="result-name">—</h2>
+        <div class="result__avg">
+          <span class="result__avg-label">Điểm trung bình</span>
+          <span class="result__avg-value" id="result-avg">0.00</span>
+        </div>
+        <span class="badge" id="result-badge">—</span>
+      </div>
+ 
+      <table class="table">
+        <thead>
+          <tr>
+            <th>STT</th>
+            <th>Môn học</th>
+            <th class="table__num">Điểm</th>
+          </tr>
+        </thead>
+        <tbody id="result-body">
+          <!-- filled by script.js -->
+        </tbody>
+      </table>
+    </section>
+ 
+  </main>
+ 
+  <script src="script.js"></script>
+</body>
+</html>
